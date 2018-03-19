@@ -1,0 +1,40 @@
+<div ng-include="'views/partials/nav.html'"></div>
+<div class="container">
+    <div>
+      <h2>Inventory</h2> 
+      <form>
+    <input ng.model="vm.item.type" placeholder="Type">
+    <input ng.model="vm.item.item" placeholder="Item">
+    <input ng.model="vm.item.description" placeholder="Description">
+    <input ng.model="vm.item.notes" placeholder="Notes">
+
+    <input type="button" ng-click="vm.submitItem" value="Add"/>
+    </form>
+    </div>
+
+    <div ng-repeat="item in vm.inventory">
+        <table>
+        <thread>
+            <th>Type</th>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Notes</th>
+        </thread>
+        <tbody>
+            <tr ng-repeat="item in vm.inventory.list" ng-cloak>
+                <td>{{item.type}}</td>
+                <td>{{item.item}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.notes}}</td>
+                <td>
+                    <button ng-click="vm.editFavorite(item)">Edit</button>
+                </td>
+                <td>
+                    <button ng-click="vm.deleteFavorite(item)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+        </table>
+
+    </div>
+</div>
